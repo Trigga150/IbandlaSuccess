@@ -1,0 +1,55 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  
+  --color-neon-blue: #00f3ff;
+  --color-neon-purple: #bc13fe;
+  --color-neon-orange: #ff8c00;
+  --color-neon-green: #39ff14;
+  
+  --shadow-neon-blue: 0 0 10px #00f3ff, 0 0 20px #00f3ff;
+  --shadow-neon-purple: 0 0 10px #bc13fe, 0 0 20px #bc13fe;
+  --shadow-neon-orange: 0 0 10px #ff8c00, 0 0 20px #ff8c00;
+}
+
+@layer base {
+  :root {
+    --background: #ffffff;
+    --foreground: #0a0a0a;
+    --card: #ffffff;
+    --card-foreground: #0a0a0a;
+    --border: #e5e5e5;
+  }
+
+  .dark {
+    --background: #050505;
+    --foreground: #ffffff;
+    --card: #0d0d0d;
+    --card-foreground: #ffffff;
+    --border: #1a1a1a;
+  }
+
+  body {
+    background-color: var(--background);
+    color: var(--foreground);
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+}
+
+.neon-glow-blue { text-shadow: var(--shadow-neon-blue); }
+.neon-glow-purple { text-shadow: var(--shadow-neon-purple); }
+.neon-glow-orange { text-shadow: var(--shadow-neon-orange); }
+
+.neon-border-blue { box-shadow: var(--shadow-neon-blue); border-color: var(--color-neon-blue); }
+.neon-border-purple { box-shadow: var(--shadow-neon-purple); border-color: var(--color-neon-purple); }
+.neon-border-orange { box-shadow: var(--shadow-neon-orange); border-color: var(--color-neon-orange); }
+
+@keyframes pulse-glow {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.7; }
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
